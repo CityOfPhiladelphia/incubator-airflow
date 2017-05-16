@@ -36,6 +36,7 @@ def create_app(config=None, testing=False):
     app = Flask(__name__)
     app.secret_key = configuration.get('webserver', 'SECRET_KEY')
     app.config['LOGIN_DISABLED'] = not configuration.getboolean('webserver', 'AUTHENTICATE')
+    aoo.config['PREFERRED_URL_SCHEME'] = configuration.get('webserver', 'WEB_PREFERRED_URL_SCHEME')
 
     csrf.init_app(app)
 
